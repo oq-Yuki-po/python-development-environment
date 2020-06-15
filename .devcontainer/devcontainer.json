@@ -4,7 +4,6 @@
 	"name": "Existing Dockerfile",
 	// Sets the run context to one level up instead of the .devcontainer folder.
 	"context": "..",
-
 	"workspaceFolder": "/usr/src",
 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 	"dockerFile": "../Dockerfile",
@@ -56,7 +55,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Uncomment the next line to run commands after the container is created - for example installing git.
-	"postCreateCommand": "bash install-dev-tools.sh"
+	"postCreateCommand": "export $(cat .env | grep -v ^# | xargs); bash install-dev-tools.sh"
 	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
 	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
 	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-in-docker.
