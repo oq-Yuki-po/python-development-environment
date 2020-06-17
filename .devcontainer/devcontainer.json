@@ -50,7 +50,8 @@
 		"ms-pyright.pyright",
 		"donjayamanne.githistory",
 		"njpwerner.autodocstring",
-		"saikou9901.evilinspector"
+		"saikou9901.evilinspector",
+		"humao.rest-client"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
