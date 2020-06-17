@@ -1,4 +1,4 @@
-from flask import Response as FlaskResponse, jsonify
+from flask import Response as FlaskResponse
 from flask_restful import Resource
 
 from api.responses.success import Response
