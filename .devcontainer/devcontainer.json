@@ -51,7 +51,9 @@
 		"donjayamanne.githistory",
 		"njpwerner.autodocstring",
 		"saikou9901.evilinspector",
-		"humao.rest-client"
+		"humao.rest-client",
+		"coenraads.bracket-pair-colorizer",
+		"streetsidesoftware.code-spell-checker"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
