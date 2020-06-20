@@ -16,4 +16,6 @@ WORKDIR /usr/src/pip
 RUN poetry config virtualenvs.create false \
   && poetry install
 
+WORKDIR /usr/src/app
+
 CMD ["uwsgi","--ini","uwsgi.ini"]

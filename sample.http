@@ -1,4 +1,4 @@
-GET http://localhost:5000/hello_world
+GET http://localhost/hello_world
 
 ###
-GET http://localhost:5000/goodbye/Tom
+GET http://localhost/goodbye/Tom
