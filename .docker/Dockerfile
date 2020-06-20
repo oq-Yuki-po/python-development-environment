@@ -1,8 +1,11 @@
 FROM python:3.7.7-slim
 
-WORKDIR /usr/src
+RUN apt-get update \
+  && apt-get install -y \
+  build-essential \
+  && pip install poetry
 
-RUN pip install poetry
+WORKDIR /usr/src
 
 COPY ./ ./
 
@@ -12,3 +15,5 @@ WORKDIR /usr/src/pip
 
 RUN poetry config virtualenvs.create false \
   && poetry install
+
+CMD ["uwsgi","--ini","uwsgi.ini"]
