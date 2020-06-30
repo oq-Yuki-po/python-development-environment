@@ -1,0 +1,13 @@
+version: "2"
+services:
+  jupyterlab:
+    image: jupyter/scipy-notebook
+    user: root
+    ports:
+      - "80:8888"
+    volumes:
+      - "./work:/home/jovyan/work" # ← notebookをホストと共有したいためディレクトリをマウント
+    environment:
+      NB_UID: 500 # ← 作業するユーザーのUID 私の環境では500だったので500を指定
+      GRANT_SUDO: "yes"
+      LANG: ja_JP.UTF-8
