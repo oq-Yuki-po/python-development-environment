@@ -1,0 +1,66 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.122.1/containers/docker-from-docker-compose
+// If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
+{
+	"name": "Docker from Docker Compose",
+	"context": "./../",
+	"dockerComposeFile": "./../.docker/docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/home/app-user/develop",
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		// pythonのinterpreterを設定
+		"python.pythonPath": "/usr/local/bin/python",
+		// pylintの設定
+		"python.linting.enabled": true,
+		"python.linting.lintOnSave": true,
+		"python.linting.pylintArgs": [
+			"--enable=F,E,C,R",
+			"--disable=E1101,C0111",
+			"--max-line-length=120",
+		],
+		"autoDocstring.docstringFormat": "numpy",
+		// pytestの設定
+		"python.testing.pytestArgs": [
+			"tests"
+		],
+		"python.testing.unittestEnabled": false,
+		"python.testing.nosetestsEnabled": false,
+		"python.testing.pytestEnabled": true,
+		// autopep8の設定
+		"python.formatting.autopep8Args": [
+			"--ignore",
+			"E70",
+			"--max-line-length",
+			"120",
+		],
+		// エディタに縦線を引く
+		"editor.rulers": [
+			120
+		],
+		// 空白削除
+		"editor.trimAutoWhitespace": true,
+		"files.trimTrailingWhitespace": true,
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+		"eamodio.gitlens",
+		"ms-pyright.pyright",
+		"donjayamanne.githistory",
+		"njpwerner.autodocstring",
+		"saikou9901.evilinspector",
+		"humao.rest-client",
+		"coenraads.bracket-pair-colorizer",
+		"streetsidesoftware.code-spell-checker"
+	],
+	// "overrideCommand":[/bin/sh -c "while sleep 1000; do :; done"]
+	// Uncomment the next line if you want start specific services in your Docker Compose config.
+	// "runServices": [],
+	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+	// "shutdownAction": "none",
+	"postCreateCommand": "export $(cat .devcontainer/.env | grep -v ^# | xargs); bash .devcontainer/install-dev-tools.sh"
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode"
+}
